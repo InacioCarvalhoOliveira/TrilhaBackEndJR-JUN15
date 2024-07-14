@@ -1,7 +1,7 @@
-## API ASPNET_CORE e EF_FRAMEWORK_CORE 8
-Banco de dados : sqlServer(IDE SqlExpress)
-Estrutura do banco montada em Data_Annotations
-    - Projeto possui migração direta
+## API AspNetCre e EFCore 8
+- Banco de dados : sqlServer(IDE SqlExpress)
+- Estrutura do banco montada em Data_Annotations
+- Projeto possui migração direta
 pacotes necessários:
     $ dotnet add package Microsoft.entityFrameworkCore.InMemory
     $ dotnet add package Microsoft.entityFrameworkCore.SqlServer

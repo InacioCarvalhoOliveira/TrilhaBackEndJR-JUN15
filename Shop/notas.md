@@ -20,3 +20,10 @@ pacotes necessários:
         To undo this action, use 'ef migrations remove'
         
         $ dotnet ef database update
+
+    autenticacao e permissao usuarios
+        $ dotnet add package Microsoft.AspNetCore.Authentication 
+        $ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+        $ identity server

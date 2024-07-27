@@ -73,7 +73,6 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/System.Runtime.Caching.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/System.Security.Permissions.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/System.Text.Json.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/System.Windows.Extensions.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.resources.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.resources.dll

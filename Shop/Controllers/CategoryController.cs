@@ -5,7 +5,7 @@ using Shop.Models;
 namespace Shop.Controllers
 {
     [Route("Categories")] 
-    public class UserController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         [HttpGet]
         [Route("")]

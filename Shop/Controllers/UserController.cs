@@ -12,6 +12,7 @@ namespace Shop.Controllers
     {
         [HttpGet]
         [Route("")]
+        [AllowAnonymous]
         //[Authorize(Roles = "manager")]
         public async Task<ActionResult<List<User>>> Get(
             [FromServices]DataContext context
@@ -26,6 +27,7 @@ namespace Shop.Controllers
         }
         [HttpPost]
         [Route("login")]
+        [Authorize]
         public async Task<ActionResult<dynamic>> Authenticate(
             [FromBody]User model,
             [FromServices]DataContext context
@@ -49,6 +51,7 @@ namespace Shop.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> GetById(
             int id,
             [FromServices]DataContext context
@@ -60,6 +63,7 @@ namespace Shop.Controllers
 
         [HttpPost]
         [Route("")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> Post(
             [FromBody]User model,
             [FromServices]DataContext context
@@ -69,8 +73,10 @@ namespace Shop.Controllers
                 return BadRequest(ModelState);
             try
             {
+                model.Role = "employee";
                 context.Users.Add(model);
                 await context.SaveChangesAsync();
+                model.Password = "";
                 return Ok(model);
             }
             catch
@@ -81,7 +87,7 @@ namespace Shop.Controllers
 
         [HttpPut]
         [Route("{id:int}")]
-        [Authorize(Roles = "manager")]
+        [AllowAnonymous]
         public async Task<ActionResult<User>> Put(
             int id,
             [FromBody]User model,

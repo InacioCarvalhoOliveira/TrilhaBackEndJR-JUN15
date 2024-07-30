@@ -28,10 +28,10 @@ namespace Shop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
             //garante que o DataContext seja instanciado uma vez por requisição
             services.AddScoped<DataContext, DataContext>();
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+            //  services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
             var key = System.Text.Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>
             {

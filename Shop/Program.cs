@@ -12,10 +12,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//lder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 //garante que o DataContext seja instanciado uma vez por requisição
 builder.Services.AddScoped<DataContext, DataContext>();
-builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
+//builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
 var key = System.Text.Encoding.ASCII.GetBytes(Settings.Secret);
 builder.Services.AddAuthentication(x =>
 {

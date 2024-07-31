@@ -8,4 +8,3 @@
     Migração automatica conforme novos parâmetros;
 
 - Build e Deploy automatizados utlizando Azure Devops
--  

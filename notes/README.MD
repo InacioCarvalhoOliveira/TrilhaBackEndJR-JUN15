@@ -1,5 +1,11 @@
-## API AspNetCre e EFCore 8
-- Banco de dados : sqlServer(IDE SqlExpress)
-- Estrutura do banco montada em Data_Annotations
-- Projeto possui migração direta
-- validacao e autenticacao com JWT
+## API AspNetCore e EFCore 8
+
+- Autenticação : JWT Bearier
+- Banco de dados : SQLServer(IDE SqlExpress)
+    Banco disponibilizado em Container Docker;
+    Estrutura do banco montada em Data_Annotations;
+    Design pattern Singleton;
+    Migração automatica conforme novos parâmetros;
+
+- Build e Deploy automatizados utlizando Azure Devops
+-  

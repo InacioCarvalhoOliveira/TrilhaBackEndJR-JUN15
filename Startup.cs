@@ -26,12 +26,16 @@ namespace Shop
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
             //garante que o DataContext seja instanciado uma vez por requisição
             services.AddScoped<DataContext, DataContext>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new() { Title = "Shop", Version = "v1" });
+            });
             //  services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
             var key = System.Text.Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>
             {
-               x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-               x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(x =>
             {
                 x.RequireHttpsMetadata = false;
@@ -44,24 +48,24 @@ namespace Shop
                     ValidateAudience = false
                 };
             });
-            
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //if (env.IsDevelopment())
             //{
-                //app.UseDeveloperExceptionPage();
+            //app.UseDeveloperExceptionPage();
             //}
             //else
             //{
-                //app.UseExceptionHandler("/Home/Error");
-                //app.UseHsts();
+            //app.UseExceptionHandler("/Home/Error");
+            //app.UseHsts();
             //}
 
-           app.UseSwagger();
+            app.UseSwagger();
 
-           app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop"));
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -80,5 +84,3 @@ namespace Shop
         }
     }
 }
-
-

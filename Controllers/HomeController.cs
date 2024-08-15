@@ -10,14 +10,13 @@ namespace Shop.Controllers
         [HttpGet]
         [Route("")]
         public async Task<ActionResult<dynamic>> Get(
-            [FromServices]DataContext context,
-            [FromServices]User user
+            [FromServices]DataContext context
         )
         {
-        var employee = new User { Id = 1, UserName = "ronaldo", Password = "ronaldo2024", Role = "employee" };
-        var manager = new User { Id = 2, UserName = "maria", Password = "maria2024", Role = "manager" };
-        var category = new Category { Id = 1, Title = "Informática" };
-        var product = new Product { Id = 1, Category = category, Title = "Mouse", Price = 299, Description = "Mouse Gamer" };
+        var employee = new User { Id = 4, UserName = "ronaldo12", Password = "ronaldo2024", Role = "employee" };
+        var manager = new User { Id = 5, UserName = "maria12", Password = "maria2024", Role = "manager" };
+        var category = new Category { Id = 7, Title = "Informática" };
+        var product = new Product { Id = 7, Category = category, Title = "Mouse", Price = 299, Description = "Mouse Gamer" };
         context.Users.Add(employee);
         context.Users.Add(manager);
         context.Categories.Add(category);

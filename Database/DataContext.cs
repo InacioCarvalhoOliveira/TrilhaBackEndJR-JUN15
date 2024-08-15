@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.InMemory;
 using Shop.Models;
 namespace Shop.Database
 {
+    
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) 

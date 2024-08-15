@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build"
+		},
+		{
+			"type": "dotnet",
+			"task": "watch Shop",
+			"file": "/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/Shop.csproj",
+			"problemMatcher": [],
+			"label": "dotnet: watch Shop"
+		},
+		{
+			"type": "dotnet",
+			"task": "build /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/<relative-path-to-project-folder><project-name>.csproj",
+			"file": "/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/<relative-path-to-project-folder><project-name>.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/<relative-path-to-project-folder><project-name>.csproj"
+		}
+	]
+}

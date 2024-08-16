@@ -122,7 +122,7 @@ Este projeto se baseia na ideia de Gerenciamento de Produtos e Usuários do sist
 ## 🥷 Tecnologias
 
 - Linguagem: C#(Sdk8.0) 
-- Framework: ASP.NET CORE Spring Boot (Entity Framework Core)
+- Framework: ASP.NET CORE (Entity Framework Core)
 - Banco de Dados: SQL Server
 - Entity Framework Migrations
 - Microsoft JWTBearier

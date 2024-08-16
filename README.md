@@ -5,7 +5,7 @@ API Product ordering and management
 </h1>
 
 ### Projeto
-Este projeto se baseia na ideia de Gerenciamento de Produtos e Usuários do sistema. Com ele é possível Adicionar um produto, atribui-lo a uma categoria e gerenciar quem pode fazer nodificações neste produto o(Gerente/Funcionário). Foram implementado no projeto funcionalidades de Autenticação e autorização, fazendo com que somente Funcionários autenticados possam cadastrar produtos e que apenas os administradores tenham acesso a todas as funcionalidades.  
+Este projeto se baseia na ideia de Gerenciamento de Produtos e Usuários do sistema. Com ele é possível Adicionar um produto, atribui-lo a uma categoria e gerenciar quem pode fazer nodificações neste produto o(Gerente/Funcionário). Foram implementados no projeto funcionalidades de Autenticação e autorização, fazendo com que somente Funcionários autenticados possam cadastrar produtos e que apenas os administradores tenham acesso a todas as funcionalidades.  
 
 <details>
     <summary><b>Categorias</b></summary>

@@ -138,7 +138,7 @@ Pré-requisito: Dotnet sdk8.0
 2. Instale as dependências documentadas em **/notas.md**
 
 ## 👩‍💻 Autor
-Inacio Olieira
+Inacio Oliveira
 https://www.linkedin.com/in/InacioCarvalho/
 
 ## Projeto

@@ -50,15 +50,24 @@ namespace Shop.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{password}/{username}")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> GetById(
-            int id,
+            string username, string password,
             [FromServices]DataContext context
         )
         {
-            var user = await context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-            return Ok(user);
+            try
+            {
+                var user = await context.Users.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserName == username && x.Password == password);
+                return Ok(user);
+            }
+            catch
+            {
+                return BadRequest(new { message = "Não foi possível encontrar o usuário" });
+            }
+           
         }
 
         [HttpPost]

@@ -49,25 +49,41 @@ namespace Shop.Controllers
             };
         }
 
+        /// <summary>
+        /// Obtém um usuário com base no nome de usuário e senha fornecidos.
+        /// </summary>
+        /// <param name="username">O nome de usuário do usuário a ser obtido.</param>
+        /// <param name="password">A senha do usuário a ser obtido.</param>
+        /// <param name="context">O contexto de dados utilizado para consultar o usuário.</param>
+        /// <returns>Um objeto <see cref="User"/> se o usuário for encontrado; caso contrário, um erro.</returns>
+        /// <response code="200">Retorna o usuário encontrado.</response>
+        /// <response code="400">Se não for possível encontrar o usuário.</response>
+        /// <response code="500">Se ocorrer um erro inesperado durante a operação.</response>
         [HttpGet]
-        [Route("{password}/{username}")]
+        [Route("{username}/{password}")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> GetById(
-            string username, string password,
-            [FromServices]DataContext context
+            [FromRoute] string username, 
+            [FromRoute] string password,
+            [FromServices] DataContext context
         )
         {
             try
             {
                 var user = await context.Users.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.UserName == username && x.Password == password);
+                    .FirstOrDefaultAsync(x => x.UserName == username && x.Password == password);
+                
+                if (user == null)
+                {
+                    return NotFound(new { message = "Usuário não encontrado." });
+                }
+        
                 return Ok(user);
             }
             catch
             {
-                return BadRequest(new { message = "Não foi possível encontrar o usuário" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Não foi possível processar a solicitação." });
             }
-           
         }
 
         [HttpPost]

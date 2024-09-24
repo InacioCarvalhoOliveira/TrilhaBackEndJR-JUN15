@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Shop.Database;
-using System.Runtime;
+using System.Text;
 
 namespace Shop
 {
@@ -17,20 +17,32 @@ namespace Shop
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            //garante que o DataContext seja instanciado uma vez por requisição
-            services.AddScoped<DataContext, DataContext>();
-            services.AddSwaggerGen(c =>
+            // Configure CORS
+            services.AddCors(options =>
             {
-                c.SwaggerDoc("v1", new() { Title = "Shop", Version = "v1" });
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                       .WithOrigins("http://localhost:5039")
+                       .WithOrigins("http://localhost:8000")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials(); // Allow credentials if neededs
+                    });
             });
-              services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
-            var key = System.Text.Encoding.ASCII.GetBytes(Settings.Secret);
+
+            // Add DbContext with SQL Server
+            services.AddDbContext<DataContext>(opt =>
+                opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+
+            // Add Authentication with JWT
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -43,44 +55,63 @@ namespace Shop
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateIssuer = true,
+                    ValidateAudience = true
                 };
             });
 
+            // Register logger
+            services.AddLogging();
+
+            // Add MVC controllers
+            services.AddControllers();
+
+            // Add Swagger for API documentation
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new() { Title = "Shop", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //app.UseExceptionHandler("/Home/Error");
-            //app.UseHsts();
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
 
             app.UseSwagger();
-
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop"));
 
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            // Apply CORS policy
+            app.UseCors("AllowAllOrigins");
 
+            // Apply Authentication and Authorization
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            // Log requests and responses
+            app.Use(async (context, next) =>
+            {
+                await next.Invoke();
+                // Log the response headers to verify CORS headers
+                var headers = context.Response.Headers;
+                Console.WriteLine($"CORS Headers: {string.Join(", ", headers.Keys)}");
+            });
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers(); // Map API controllers
             });
         }
     }

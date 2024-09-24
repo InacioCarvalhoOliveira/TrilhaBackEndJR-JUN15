@@ -18,8 +18,6 @@ namespace Shop.Models
         [MaxLength(15, ErrorMessage = "This field must have at most 15 characters")]
         [Required(ErrorMessage = "This field is required")]
         public required string Password { get; set; }
-
-        [Required(ErrorMessage = "This field is required")]
         public string? Role { get; set;}
      }
  }

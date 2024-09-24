@@ -21,9 +21,9 @@ namespace Shop.Models
         [Column(TypeName = "decimal(18,2)")]
         public required decimal Price { get; set; }
 
-        [Required(ErrorMessage = "Category is required")]
+        //[Required(ErrorMessage = "Category is required")]
         [Range(1, int.MaxValue, ErrorMessage = "Invalid Category Id")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         public Category? Category { get; set; }
     }

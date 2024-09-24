@@ -7,15 +7,23 @@ using Shop.Services;
 
 namespace Shop.Controllers
 {
-    [Route("Users")]
-    public class UserController : ControllerBase 
+
+    public class TokenRequest
     {
+        public string Token { get; set; }
+    }
+
+
+    [Route("Users")]
+    public class UserController : ControllerBase
+    {
+
         [HttpGet]
         [Route("")]
         [AllowAnonymous]
         //[Authorize(Roles = "manager")]
         public async Task<ActionResult<List<User>>> Get(
-            [FromServices]DataContext context
+            [FromServices] DataContext context
         )
         {
             var users = await context
@@ -23,14 +31,14 @@ namespace Shop.Controllers
                 .AsNoTracking()
                 .ToListAsync();
             return Ok(users);
-
         }
+        
         [HttpPost]
         [Route("login")]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate(
-            [FromBody]User model,
-            [FromServices]DataContext context
+            [FromBody] User model,
+            [FromServices] DataContext context
         )
         {
             var user = await context
@@ -44,9 +52,45 @@ namespace Shop.Controllers
             user.Password = "";
             return new
             {
-                user = user,
+                // user = user,
                 token = token
             };
+        }
+
+        [HttpPost]
+        [Route("logout")]
+        [AllowAnonymous]
+        public IActionResult Logout([FromBody] TokenRequest request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Token))
+                return BadRequest(new { message = "Token is required" });
+
+            TokenBlacklist.AddToBlacklist(request.Token);
+
+            return Ok(new { message = "Logged out successfully" });
+        }
+
+        [HttpPost]
+        [Route("validateToken")]
+        [AllowAnonymous]
+        public IActionResult ValidateToken([FromBody] TokenRequest request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Token))
+                return BadRequest(new { message = "Token is required" });
+        
+            try
+            {
+                var userId = TokenService.ValidateToken(request.Token);
+                if (userId == null)
+                    return Unauthorized(new { message = "Invalid token" });
+        
+                return Ok(new { message = "Token is valid", userId = userId });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (ex) here if needed
+                return StatusCode(500, new { message = "An error occurred while validating the token." });
+            }
         }
 
         /// <summary>
@@ -63,7 +107,7 @@ namespace Shop.Controllers
         [Route("{username}/{password}")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> GetById(
-            [FromRoute] string username, 
+            [FromRoute] string username,
             [FromRoute] string password,
             [FromServices] DataContext context
         )
@@ -72,12 +116,12 @@ namespace Shop.Controllers
             {
                 var user = await context.Users.AsNoTracking()
                     .FirstOrDefaultAsync(x => x.UserName == username && x.Password == password);
-                
+
                 if (user == null)
                 {
                     return NotFound(new { message = "Usuário não encontrado." });
                 }
-        
+
                 return Ok(user);
             }
             catch
@@ -90,8 +134,8 @@ namespace Shop.Controllers
         [Route("")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> Post(
-            [FromBody]User model,
-            [FromServices]DataContext context
+            [FromBody] User model,
+            [FromServices] DataContext context
         )
         {
             if (!ModelState.IsValid)
@@ -112,11 +156,12 @@ namespace Shop.Controllers
 
         [HttpPut]
         [Route("{id:int}")]
-        [AllowAnonymous]
+        [Authorize(Roles = "manager")]
+
         public async Task<ActionResult<User>> Put(
             int id,
-            [FromBody]User model,
-            [FromServices]DataContext context
+            [FromBody] User model,
+            [FromServices] DataContext context
         )
         {
             if (model.Id != id)
@@ -141,9 +186,9 @@ namespace Shop.Controllers
 
         public async Task<ActionResult<User>> Delete(
             int id,
-            [FromServices]DataContext context
+            [FromServices] DataContext context
         )
-        {
+                {
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
                 return NotFound(new { message = "Usuário não encontrado" });

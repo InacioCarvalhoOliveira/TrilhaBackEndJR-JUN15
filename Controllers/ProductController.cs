@@ -7,8 +7,8 @@ namespace Shop.Controllers
     [Route("Products")]
     public class ProductController : ControllerBase
     {
-        [HttpGet]
         [Route("")]
+        [HttpGet]
         public async Task<ActionResult<List<Product>>> Get(
             [FromServices] DataContext context)
         {

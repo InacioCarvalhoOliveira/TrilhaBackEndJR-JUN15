@@ -38,7 +38,8 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<DataContext, DataContext>();
-builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
+builder.Services.AddDbContext<DataContext>(opt =>
+     opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
 
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
 builder.Services.AddAuthentication(x =>
@@ -59,6 +60,21 @@ builder.Services.AddAuthentication(x =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<DataContext>(); 
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        // Log error (consider using a logging framework)
+        Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

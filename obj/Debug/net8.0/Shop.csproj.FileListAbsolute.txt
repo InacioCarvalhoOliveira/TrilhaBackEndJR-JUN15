@@ -1,11 +1,3 @@
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.csproj.AssemblyReference.cache
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.GeneratedMSBuildEditorConfig.editorconfig
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.AssemblyInfoInputs.cache
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.AssemblyInfo.cs
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.csproj.CoreCompileInputs.cache
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.MvcApplicationPartsAssemblyInfo.cs
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.MvcApplicationPartsAssemblyInfo.cache
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.sourcelink.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/appsettings.Development.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/appsettings.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Shop
@@ -17,6 +9,9 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Azure.Identity.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Humanizer.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll
@@ -31,6 +26,9 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Identity.Client.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
@@ -124,6 +122,14 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.csproj.AssemblyReference.cache
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.GeneratedMSBuildEditorConfig.editorconfig
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.AssemblyInfoInputs.cache
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.AssemblyInfo.cs
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.csproj.CoreCompileInputs.cache
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.MvcApplicationPartsAssemblyInfo.cs
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.MvcApplicationPartsAssemblyInfo.cache
+/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.sourcelink.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/staticwebassets.build.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/staticwebassets.development.json
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/staticwebassets/msbuild.Shop.Microsoft.AspNetCore.StaticWebAssets.props
@@ -138,9 +144,3 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.pdb
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/Shop.genruntimeconfig.cache
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Debug/net8.0/ref/Shop.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
-/media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/bin/Debug/net8.0/Microsoft.Extensions.Options.dll

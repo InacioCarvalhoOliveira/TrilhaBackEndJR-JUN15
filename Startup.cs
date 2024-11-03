@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Shop.Database;
 using System.Text;
+using System.Reflection;
 
 namespace Shop
 {
@@ -28,12 +29,10 @@ namespace Shop
                 options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
-                        builder.AllowAnyOrigin()
-                       .WithOrigins("http://localhost:5039")
-                       .WithOrigins("http://localhost:8000")
-                       .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .AllowCredentials(); // Allow credentials if neededs
+                        builder.WithOrigins("http://localhost:5039", "http://localhost:8000")
+                               .AllowAnyMethod()
+                               .AllowAnyHeader()
+                               .AllowCredentials();
                     });
             });
 
@@ -70,6 +69,11 @@ namespace Shop
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new() { Title = "Shop", Version = "v1" });
+                
+                // Include XML comments for better documentation
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
@@ -103,10 +107,14 @@ namespace Shop
             // Log requests and responses
             app.Use(async (context, next) =>
             {
+                // Log request information
+                Console.WriteLine($"Request: {context.Request.Method} {context.Request.Path}");
+                
                 await next.Invoke();
-                // Log the response headers to verify CORS headers
+
+                // Log response headers
                 var headers = context.Response.Headers;
-                Console.WriteLine($"CORS Headers: {string.Join(", ", headers.Keys)}");
+                Console.WriteLine($"Response Headers: {string.Join(", ", headers.Keys)}");
             });
 
             app.UseEndpoints(endpoints =>
@@ -116,3 +124,4 @@ namespace Shop
         }
     }
 }
+

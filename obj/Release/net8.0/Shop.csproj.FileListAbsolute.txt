@@ -138,3 +138,10 @@
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Release/net8.0/Shop.pdb
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Release/net8.0/Shop.genruntimeconfig.cache
 /media/inacio/HDD2/Cursos/DOTNET/Webapi/TrilhaBackEndJR-JUN15/obj/Release/net8.0/ref/Shop.dll
+/app/build/appsettings.Development.json
+/app/build/appsettings.json
+/app/build/Shop
+/app/build/Shop.deps.json
+/app/build/Shop.runtimeconfig.json
+/app/build/Shop.dll
+/app/build/Shop.pdb
